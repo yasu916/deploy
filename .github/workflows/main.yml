@@ -1,0 +1,17 @@
+name: Docker Compose Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-compose:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build and start services
+        run: docker-compose up -d
